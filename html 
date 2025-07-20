@@ -28,3 +28,12 @@
     </div>
   </body>
 </html>
+hsn
+
+import ctypes
+
+def fake_error():
+    ctypes.windll.user32.MessageBoxW(0, "Your computer has been infected!", "CRITICAL ERROR", 0x10)
+
+if __name__ == "__main__":
+    fake_error()
