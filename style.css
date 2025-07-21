@@ -1,61 +1,102 @@
 body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: #000;
-  color: #fff;
-  text-align: center;
-  overflow-x: hidden;
-}
-
-.container {
-  padding: 40px 20px;
-}
-
-.profile-pic {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  border: 3px solid #0ff;
-  margin-bottom: 20px;
-  box-shadow: 0 0 20px #0ff;
-}
-
-h1 {
-  font-size: 2.5rem;
+  background-color: #000;
   color: #0ff;
-  text-shadow: 0 0 5px #0ff, 0 0 10px #00f;
+  font-family: 'Orbitron', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+  margin: 0;
+}
+
+.glitch-wrapper {
+  text-align: center;
+}
+
+.glitch {
+  font-size: 3rem;
+  position: relative;
+  color: #0ff;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  width: 100%;
+  color: #f0f;
+  background: #000;
+  overflow: hidden;
+  clip: rect(0, 900px, 0, 0);
+}
+
+.glitch::before {
+  animation: glitchTop 2s infinite linear;
+}
+
+.glitch::after {
+  animation: glitchBottom 2s infinite linear;
+}
+
+@keyframes glitchTop {
+  0% {
+    clip: rect(0, 900px, 0, 0);
+  }
+  5% {
+    clip: rect(0, 900px, 30px, 0);
+  }
+  10% {
+    clip: rect(0, 900px, 0, 0);
+  }
+  15% {
+    clip: rect(10px, 900px, 35px, 0);
+  }
+  20% {
+    clip: rect(0, 900px, 0, 0);
+  }
+}
+
+@keyframes glitchBottom {
+  0% {
+    clip: rect(0, 900px, 0, 0);
+  }
+  5% {
+    clip: rect(40px, 900px, 80px, 0);
+  }
+  10% {
+    clip: rect(0, 900px, 0, 0);
+  }
+  15% {
+    clip: rect(25px, 900px, 60px, 0);
+  }
+  20% {
+    clip: rect(0, 900px, 0, 0);
+  }
 }
 
 .tagline {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-  color: #f0f;
-  text-shadow: 0 0 5px #f0f;
-}
-
-.bio {
+  margin-top: 10px;
   font-size: 1rem;
-  color: #aaa;
-  max-width: 500px;
-  margin: 0 auto 30px;
+  color: #f0f;
 }
 
 .social-icons {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.social-icons a {
+  display: inline-block;
+  margin: 0 10px;
+  transition: transform 0.3s;
+}
+
+.social-icons a:hover {
+  transform: scale(1.2);
 }
 
 .social-icons img {
-  width: 40px;
-  height: 40px;
-  transition: transform 0.3s ease, filter 0.3s ease;
-  filter: grayscale(100%) brightness(0.7);
-}
-
-.social-icons img:hover {
-  transform: scale(1.2);
-  filter: brightness(1.5) drop-shadow(0 0 5px #0ff);
+  width: 30px;
+  filter: invert(100%);
 }
