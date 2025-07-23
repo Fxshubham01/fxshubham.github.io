@@ -1,14 +1,4 @@
-/* CSS Reset and Basic Setup */
-:root {
-    --dark-bg: #0a0a0a;
-    --main-text: #e0e0e0;
-    --soft-gray: #a7a7a7;
-    --neon-blue: #00ffff;
-    --neon-red: #ff003c;
-    --dark-accent: #1a1a1a;
-    --border-color: #333;
-}
-
+/* --- Global Styles & Setup --- */
 * {
     margin: 0;
     padding: 0;
@@ -16,56 +6,50 @@
 }
 
 html, body {
-    width: 100%;
     height: 100%;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--dark-bg);
-    color: var(--main-text);
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    padding: 2rem 1rem;
+    background-color: #0a0a0a;
+    color: #e0e0e0;
+    font-family: 'Orbitron', sans-serif;
+    padding: 20px;
 }
 
+/* --- Main Content Container --- */
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     text-align: center;
-    max-width: 700px;
+    max-width: 800px;
     width: 100%;
 }
 
-/* 🧑‍💻 Profile Image */
-.profile-img {
+/* --- Profile Picture Styling --- */
+.profile-pic {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    border: 3px solid var(--neon-blue);
-    box-shadow: 0 0 10px var(--neon-blue), 0 0 25px var(--neon-blue);
-    margin-bottom: 1.5rem;
-    object-fit: cover;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    border: 3px solid #00ffff;
+    box-shadow: 0 0 10px #00ffff, 0 0 20px #ff003c, inset 0 0 5px #00ffff;
+    margin-bottom: 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.profile-img:hover {
+.profile-pic:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 15px var(--neon-blue), 0 0 35px var(--neon-blue), 0 0 50px var(--neon-blue);
+    box-shadow: 0 0 20px #00ffff, 0 0 35px #ff003c, inset 0 0 10px #00ffff;
 }
 
-/* ⚡ Glitch Heading */
+/* --- Glitch Heading Effect --- */
 .glitch {
-    font-family: 'Orbitron', sans-serif;
     font-size: 4rem;
     font-weight: 700;
     position: relative;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    animation: glitch-main 5s infinite linear;
+    color: #e0e0e0;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    animation: glitch-flicker 4s infinite linear;
 }
 
 .glitch::before,
@@ -76,153 +60,113 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: var(--dark-bg);
+    background: #0a0a0a;
     overflow: hidden;
 }
 
+/* Neon Blue Glitch Layer */
 .glitch::before {
-    color: var(--neon-blue);
+    color: #00ffff; /* Neon Blue */
     left: 2px;
-    text-shadow: -2px 0 var(--neon-red);
-    animation: glitch-anim1 2s infinite linear reverse;
+    text-shadow: -2px 0 #ff003c; /* Neon Red */
+    animation: glitch-anim-1 2s infinite linear alternate-reverse;
 }
 
+/* Neon Red Glitch Layer */
 .glitch::after {
-    color: var(--neon-red);
+    color: #ff003c; /* Neon Red */
     left: -2px;
-    text-shadow: -2px 0 var(--neon-blue);
-    animation: glitch-anim2 3s infinite linear reverse;
+    text-shadow: -2px 0 #00ffff; /* Neon Blue */
+    animation: glitch-anim-2 3s infinite linear alternate-reverse;
 }
 
-@keyframes glitch-main {
-    0%, 100% { transform: skewX(0deg); }
-    5% { transform: skewX(1deg); }
-    10% { transform: skewX(-1deg); }
-    15% { transform: skewX(0.5deg); }
-    20% { transform: skewX(0deg); }
-}
-
-@keyframes glitch-anim1 {
-    0% { clip-path: inset(15% 0 86% 0); }
-    10% { clip-path: inset(50% 0 23% 0); }
-    20% { clip-path: inset(92% 0 2% 0); }
-    30% { clip-path: inset(30% 0 40% 0); }
-    40% { clip-path: inset(6% 0 68% 0); }
-    50% { clip-path: inset(69% 0 29% 0); }
-    60% { clip-path: inset(95% 0 4% 0); }
-    70% { clip-path: inset(33% 0 36% 0); }
-    80% { clip-path: inset(74% 0 10% 0); }
-    90% { clip-path: inset(45% 0 54% 0); }
-    100% { clip-path: inset(23% 0 74% 0); }
-}
-
-@keyframes glitch-anim2 {
-    0% { clip-path: inset(83% 0 3% 0); }
-    10% { clip-path: inset(21% 0 48% 0); }
-    20% { clip-path: inset(5% 0 91% 0); }
-    30% { clip-path: inset(55% 0 8% 0); }
-    40% { clip-path: inset(87% 0 6% 0); }
-    50% { clip-path: inset(28% 0 70% 0); }
-    60% { clip-path: inset(60% 0 30% 0); }
-    70% { clip-path: inset(93% 0 3% 0); }
-    80% { clip-path: inset(43% 0 22% 0); }
-    90% { clip-path: inset(78% 0 15% 0); }
-    100% { clip-path: inset(19% 0 80% 0); }
-}
-
-/* 🎯 Tagline */
+/* --- Text & Tagline Styling --- */
 .tagline {
-    margin-top: 0.5rem;
     font-size: 1.2rem;
-    color: var(--main-text);
-    animation: flicker 4s infinite linear;
+    color: #e0e0e0;
+    margin-top: -10px;
+    margin-bottom: 30px;
+    text-shadow: 0 0 3px #00ffff;
 }
 
-@keyframes flicker {
-    0%, 18%, 22%, 25%, 53%, 57%, 100% {
-        text-shadow:
-            0 0 4px var(--main-text),
-            0 0 10px var(--neon-blue),
-            0 0 18px var(--neon-blue);
-    }
-    20%, 24%, 55% {
-        text-shadow: none;
-    }
-}
-
-/* 🧾 About Me section */
 .about-me {
-    color: var(--soft-gray);
-    margin-top: 2rem;
-    line-height: 1.7;
-    max-width: 550px;
+    font-family: 'Courier New', Courier, monospace;
     font-size: 1rem;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+    color: #a7a7a7;
 }
 
-/* 🎧 Spotify Embed */
-.spotify-embed {
-    margin-top: 2rem;
-    width: 100%;
-    max-width: 450px;
-}
-
-/* 🌐 Social Media Icons */
-.social-icons {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin-top: 2rem;
-}
-
+/* --- Social Media Icons Styling --- */
 .social-icons a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50px;
-    height: 50px;
-    background-color: var(--dark-accent);
-    border: 2px solid var(--border-color);
-    color: var(--main-text);
-    font-size: 1.5rem;
+    color: #e0e0e0;
+    font-size: 2rem;
+    margin: 0 15px;
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .social-icons a:hover {
-    color: var(--neon-blue);
-    border-color: var(--neon-blue);
-    transform: translateY(-5px) scale(1.1);
-    box-shadow: 0 0 15px var(--neon-blue);
+    color: #00ffff;
+    text-shadow: 0 0 8px #00ffff, 0 0 15px #00ffff, 0 0 25px #ff003c;
+    transform: scale(1.2) translateY(-5px);
 }
 
-/* 📱 Mobile Responsive */
+
+/* --- Keyframe Animations for Glitch Effect --- */
+
+/* Animation for the blue layer */
+@keyframes glitch-anim-1 {
+    0% { clip-path: inset(45% 0 50% 0); }
+    25% { clip-path: inset(10% 0 80% 0); }
+    50% { clip-path: inset(70% 0 10% 0); }
+    75% { clip-path: inset(30% 0 65% 0); }
+    100% { clip-path: inset(55% 0 40% 0); }
+}
+
+/* Animation for the red layer */
+@keyframes glitch-anim-2 {
+    0% { clip-path: inset(70% 0 25% 0); }
+    25% { clip-path: inset(90% 0 5% 0); }
+    50% { clip-path: inset(30% 0 60% 0); }
+    75% { clip-path: inset(10% 0 85% 0); }
+    100% { clip-path: inset(80% 0 15% 0); }
+}
+
+/* Subtle flicker for the main text */
+@keyframes glitch-flicker {
+    0%, 100% { opacity: 1; }
+    49.8% { opacity: 1; }
+    50% { opacity: 0.7; }
+    50.2% { opacity: 1; }
+    74.8% { opacity: 1; }
+    75% { opacity: 0.5; }
+    75.2% { opacity: 1; }
+}
+
+
+/* --- Responsive Design for Mobile --- */
 @media (max-width: 768px) {
     .glitch {
-        font-size: 3rem;
+        font-size: 2.5rem; /* Smaller heading on mobile */
     }
+
     .tagline {
         font-size: 1rem;
     }
+
     .about-me {
         font-size: 0.9rem;
     }
-    .social-icons a {
-        width: 45px;
-        height: 45px;
-        font-size: 1.2rem;
-    }
-}
 
-@media (max-width: 480px) {
-    body {
-        padding: 1rem 0.5rem;
-    }
-    .glitch {
-        font-size: 2.2rem;
-    }
-    .profile-img {
+    .profile-pic {
         width: 120px;
         height: 120px;
+    }
+
+    .social-icons a {
+        font-size: 1.8rem;
+        margin: 0 10px;
     }
 }
