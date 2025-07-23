@@ -1,102 +1,172 @@
+/* --- Global Styles & Setup --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
 body {
-  background-color: #000;
-  color: #0ff;
-  font-family: 'Orbitron', sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  flex-direction: column;
-  margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0a0a0a;
+    color: #e0e0e0;
+    font-family: 'Orbitron', sans-serif;
+    padding: 20px;
 }
 
-.glitch-wrapper {
-  text-align: center;
+/* --- Main Content Container --- */
+.container {
+    text-align: center;
+    max-width: 800px;
+    width: 100%;
 }
 
+/* --- Profile Picture Styling --- */
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid #00ffff;
+    box-shadow: 0 0 10px #00ffff, 0 0 20px #ff003c, inset 0 0 5px #00ffff;
+    margin-bottom: 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-pic:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #00ffff, 0 0 35px #ff003c, inset 0 0 10px #00ffff;
+}
+
+/* --- Glitch Heading Effect --- */
 .glitch {
-  font-size: 3rem;
-  position: relative;
-  color: #0ff;
+    font-size: 4rem;
+    font-weight: 700;
+    position: relative;
+    color: #e0e0e0;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    animation: glitch-flicker 4s infinite linear;
 }
 
 .glitch::before,
 .glitch::after {
-  content: attr(data-text);
-  position: absolute;
-  left: 0;
-  width: 100%;
-  color: #f0f;
-  background: #000;
-  overflow: hidden;
-  clip: rect(0, 900px, 0, 0);
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0a0a0a;
+    overflow: hidden;
 }
 
+/* Neon Blue Glitch Layer */
 .glitch::before {
-  animation: glitchTop 2s infinite linear;
+    color: #00ffff; /* Neon Blue */
+    left: 2px;
+    text-shadow: -2px 0 #ff003c; /* Neon Red */
+    animation: glitch-anim-1 2s infinite linear alternate-reverse;
 }
 
+/* Neon Red Glitch Layer */
 .glitch::after {
-  animation: glitchBottom 2s infinite linear;
+    color: #ff003c; /* Neon Red */
+    left: -2px;
+    text-shadow: -2px 0 #00ffff; /* Neon Blue */
+    animation: glitch-anim-2 3s infinite linear alternate-reverse;
 }
 
-@keyframes glitchTop {
-  0% {
-    clip: rect(0, 900px, 0, 0);
-  }
-  5% {
-    clip: rect(0, 900px, 30px, 0);
-  }
-  10% {
-    clip: rect(0, 900px, 0, 0);
-  }
-  15% {
-    clip: rect(10px, 900px, 35px, 0);
-  }
-  20% {
-    clip: rect(0, 900px, 0, 0);
-  }
-}
-
-@keyframes glitchBottom {
-  0% {
-    clip: rect(0, 900px, 0, 0);
-  }
-  5% {
-    clip: rect(40px, 900px, 80px, 0);
-  }
-  10% {
-    clip: rect(0, 900px, 0, 0);
-  }
-  15% {
-    clip: rect(25px, 900px, 60px, 0);
-  }
-  20% {
-    clip: rect(0, 900px, 0, 0);
-  }
-}
-
+/* --- Text & Tagline Styling --- */
 .tagline {
-  margin-top: 10px;
-  font-size: 1rem;
-  color: #f0f;
+    font-size: 1.2rem;
+    color: #e0e0e0;
+    margin-top: -10px;
+    margin-bottom: 30px;
+    text-shadow: 0 0 3px #00ffff;
 }
 
-.social-icons {
-  margin-top: 20px;
+.about-me {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1rem;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+    color: #a7a7a7;
 }
 
+/* --- Social Media Icons Styling --- */
 .social-icons a {
-  display: inline-block;
-  margin: 0 10px;
-  transition: transform 0.3s;
+    color: #e0e0e0;
+    font-size: 2rem;
+    margin: 0 15px;
+    text-decoration: none;
+    transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .social-icons a:hover {
-  transform: scale(1.2);
+    color: #00ffff;
+    text-shadow: 0 0 8px #00ffff, 0 0 15px #00ffff, 0 0 25px #ff003c;
+    transform: scale(1.2) translateY(-5px);
 }
 
-.social-icons img {
-  width: 30px;
-  filter: invert(100%);
+
+/* --- Keyframe Animations for Glitch Effect --- */
+
+/* Animation for the blue layer */
+@keyframes glitch-anim-1 {
+    0% { clip-path: inset(45% 0 50% 0); }
+    25% { clip-path: inset(10% 0 80% 0); }
+    50% { clip-path: inset(70% 0 10% 0); }
+    75% { clip-path: inset(30% 0 65% 0); }
+    100% { clip-path: inset(55% 0 40% 0); }
+}
+
+/* Animation for the red layer */
+@keyframes glitch-anim-2 {
+    0% { clip-path: inset(70% 0 25% 0); }
+    25% { clip-path: inset(90% 0 5% 0); }
+    50% { clip-path: inset(30% 0 60% 0); }
+    75% { clip-path: inset(10% 0 85% 0); }
+    100% { clip-path: inset(80% 0 15% 0); }
+}
+
+/* Subtle flicker for the main text */
+@keyframes glitch-flicker {
+    0%, 100% { opacity: 1; }
+    49.8% { opacity: 1; }
+    50% { opacity: 0.7; }
+    50.2% { opacity: 1; }
+    74.8% { opacity: 1; }
+    75% { opacity: 0.5; }
+    75.2% { opacity: 1; }
+}
+
+
+/* --- Responsive Design for Mobile --- */
+@media (max-width: 768px) {
+    .glitch {
+        font-size: 2.5rem; /* Smaller heading on mobile */
+    }
+
+    .tagline {
+        font-size: 1rem;
+    }
+
+    .about-me {
+        font-size: 0.9rem;
+    }
+
+    .profile-pic {
+        width: 120px;
+        height: 120px;
+    }
+
+    .social-icons a {
+        font-size: 1.8rem;
+        margin: 0 10px;
+    }
 }
