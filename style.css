@@ -1,544 +1,75 @@
-/* CSS Variables for Theme */
-:root {
-    --dark-bg: #0a0a0a;
-    --darker-bg: #050505;
-    --neon-blue: #0ff0fc;
-    --neon-green: #39ff14;
-    --neon-red: #ff2a6d;
-    --neon-purple: #bc13fe;
-    --text-color: #f8f8f8;
-    --text-muted: #aaaaaa;
-    --font-heading: 'Orbitron', sans-serif;
-    --font-body: 'Poppins', sans-serif;
-    --transition: all 0.3s ease;
-    --glow: 0 0 10px rgba(0, 255, 255, 0.8),
-             0 0 20px rgba(0, 255, 255, 0.6),
-             0 0 30px rgba(0, 255, 255, 0.4);
-    --green-glow: 0 0 10px rgba(57, 255, 20, 0.8),
-                  0 0 20px rgba(57, 255, 20, 0.6),
-                  0 0 30px rgba(57, 255, 20, 0.4);
-    --purple-glow: 0 0 10px rgba(188, 19, 254, 0.8),
-                   0 0 20px rgba(188, 19, 254, 0.6),
-                   0 0 30px rgba(188, 19, 254, 0.4);
-}
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FX_SHUBHAM</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="glitch-bg">
+        <div class="code-glitch">011010101010</div>
+        <div class="code-glitch">110101010110</div>
+        <div class="code-glitch">101010111000</div>
+        <div class="code-glitch">100110101011</div>
+        <div class="code-glitch">011011010101</div>
+        <div class="code-glitch">101110101001</div>
+        <div class="code-glitch">010101010110</div>
+        <div class="code-glitch">111000110101</div>
+    </div><div class="container">
+    <section class="profile-section">
+        <div class="profile-picture">
+            <img src="profile.jpg" alt="FX_SHUBHAM" style="width:100%; height:100%; border-radius: 50%;" />
+            <div class="glow"></div>
+        </div>
+        <h1 class="username" data-text="FX_SHUBHAM">
+            <span style="color: var(--neon-red)">F</span>
+            <span style="color: var(--neon-purple)">X</span>
+            <span style="color: var(--neon-green)\">_</span>
+            <span style="color: var(--neon-blue)">S</span>
+            <span style="color: var(--neon-red)">H</span>
+            <span style="color: var(--neon-purple)">U</span>
+            <span style="color: var(--neon-green)">B</span>
+            <span style="color: var(--neon-blue)">H</span>
+            <span style="color: var(--neon-red)">A</span>
+            <span style="color: var(--neon-purple)">M</span>
+        </h1>
+        <p class="tagline">Frontend Developer & UI Enthusiast</p>
+    </section>
 
-/* Base Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+    <section class="social-section">
+        <div class="social-icons">
+            <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-telegram-plane"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-reddit-alien"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-x-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-discord"></i></a>
+        </div>
+    </section>
 
-body {
-    background-color: var(--dark-bg);
-    color: var(--text-color);
-    font-family: var(--font-body);
-    line-height: 1.6;
-    overflow-x: hidden;
-    position: relative;
-    min-height: 100vh;
-}
+    <section class="about-section">
+        <div class="about-card">
+            <h2>About Me</h2>
+            <p>
+                Passionate about clean code, responsive design, and eye-catching UI. 
+                Continuously learning and evolving as a developer.
+            </p>
+        </div>
+    </section>
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    z-index: 1;
-}
+    <section class="spotify-section">
+        <div class="spotify-embed">
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/yourplaylistid" width="100%" height="152" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+        </div>
+    </section>
 
-/* Glitch Background Elements */
-.glitch-bg {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-    overflow: hidden;
-    opacity: 0.05;
-}
+    <footer class="footer">
+        <p>&copy; 2025 FX_SHUBHAM. All rights reserved.</p>
+    </footer>
+</div>
 
-.code-glitch {
-    position: absolute;
-    font-family: 'Courier New', monospace;
-    color: var(--neon-green);
-    font-size: 1rem;
-    opacity: 0;
-    animation: float-and-fade 15s linear infinite;
-    text-shadow: 0 0 5px rgba(57, 255, 20, 0.5);
-}
-
-.code-glitch:nth-child(1) {
-    top: 10%;
-    left: 5%;
-    animation-delay: 0s;
-}
-.code-glitch:nth-child(2) {
-    top: 30%;
-    right: 10%;
-    animation-delay: 3s;
-}
-.code-glitch:nth-child(3) {
-    bottom: 20%;
-    left: 15%;
-    animation-delay: 6s;
-}
-.code-glitch:nth-child(4) {
-    top: 60%;
-    right: 20%;
-    animation-delay: 9s;
-}
-.code-glitch:nth-child(5) {
-    bottom: 40%;
-    left: 25%;
-    animation-delay: 12s;
-}
-.code-glitch:nth-child(6) {
-    top: 25%;
-    left: 30%;
-    animation-delay: 15s;
-}
-.code-glitch:nth-child(7) {
-    top: 45%;
-    right: 30%;
-    animation-delay: 18s;
-}
-.code-glitch:nth-child(8) {
-    bottom: 30%;
-    right: 15%;
-    animation-delay: 21s;
-}
-
-@keyframes float-and-fade {
-    0% {
-        transform: translateY(0) translateX(0);
-        opacity: 0;
-    }
-    10% {
-        opacity: 0.7;
-    }
-    90% {
-        opacity: 0.7;
-    }
-    100% {
-        transform: translateY(-100px) translateX(50px);
-        opacity: 0;
-    }
-}
-
-/* Profile Section */
-.profile-section {
-    text-align: center;
-    margin: 3rem 0;
-    position: relative;
-    z-index: 2;
-}
-
-.profile-picture {
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    background: linear-gradient(45deg, #1a1a1a, #0d0d0d);
-    margin: 0 auto 1.5rem;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
-    border: 2px solid var(--neon-green);
-    overflow: hidden;
-}
-
-.profile-picture::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle, transparent 60%, var(--neon-green) 150%);
-    opacity: 0.3;
-    border-radius: 50%;
-}
-
-.glow {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    top: 0;
-    left: 0;
-    background: transparent;
-    box-shadow: var(--green-glow);
-    opacity: 0.7;
-    animation: pulse 2s infinite alternate;
-}
-
-@keyframes pulse {
-    0% {
-        transform: scale(0.95);
-        opacity: 0.7;
-    }
-    100% {
-        transform: scale(1.1);
-        opacity: 0.3;
-    }
-}
-
-.username {
-    font-family: var(--font-heading);
-    font-size: 3.5rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    margin-bottom: 0.5rem;
-    color: var(--neon-green);
-    position: relative;
-    animation: glitch-effect 3s infinite;
-    text-shadow: 0 0 10px rgba(57, 255, 20, 0.7);
-}
-
-.username::before, .username::after {
-    content: attr(data-text);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0.8;
-}
-
-.username::before {
-    color: var(--neon-purple);
-    z-index: -1;
-    animation: glitch-effect 3s infinite reverse;
-}
-
-.username::after {
-    color: var(--neon-green);
-    z-index: -2;
-    animation: glitch-effect 2s infinite alternate-reverse;
-}
-
-@keyframes glitch-effect {
-    0% {
-        transform: translate(0);
-    }
-    20% {
-        transform: translate(-3px, 3px);
-    }
-    40% {
-        transform: translate(-3px, -3px);
-    }
-    60% {
-        transform: translate(3px, 3px);
-    }
-    80% {
-        transform: translate(3px, -3px);
-    }
-    100% {
-        transform: translate(0);
-    }
-}
-
-.tagline {
-    font-family: var(--font-heading);
-    font-size: 1.4rem;
-    font-weight: 500;
-    color: var(--neon-blue);
-    letter-spacing: 1px;
-    margin-bottom: 2rem;
-    text-shadow: 0 0 8px rgba(15, 240, 252, 0.5);
-    animation: fadeIn 2s ease-out;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Social Icons Section */
-.social-section {
-    margin: 2rem 0;
-    width: 100%;
-    max-width: 800px;
-}
-
-.social-icons {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    margin-top: 1rem;
-}
-
-.social-icon {
-    width: 70px;
-    height: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 12px;
-    background: rgba(20, 20, 20, 0.8);
-    color: var(--text-color);
-    font-size: 2rem;
-    text-decoration: none;
-    transition: var(--transition);
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-    border: 2px solid rgba(57, 255, 20, 0.3);
-}
-
-.social-icon::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(45deg, 
-        transparent, 
-        rgba(57, 255, 20, 0.1), 
-        transparent);
-    z-index: 1;
-    transform: translateX(-100%);
-    transition: transform 0.6s ease;
-}
-
-.social-icon:hover {
-    transform: translateY(-5px) scale(1.05);
-    box-shadow: var(--green-glow);
-    border-color: var(--neon-green);
-    color: var(--neon-green);
-}
-
-.social-icon:hover::before {
-    transform: translateX(100%);
-}
-
-.social-icon:nth-child(2):hover {
-    color: #0088cc;
-    border-color: #0088cc;
-    box-shadow: 0 0 15px rgba(0, 136, 204, 0.8);
-}
-
-.social-icon:nth-child(3):hover {
-    color: #ff4500;
-    border-color: #ff4500;
-    box-shadow: 0 0 15px rgba(255, 69, 0, 0.8);
-}
-
-.social-icon:nth-child(4):hover {
-    color: #1DA1F2;
-    border-color: #1DA1F2;
-    box-shadow: 0 0 15px rgba(29, 161, 242, 0.8);
-}
-
-.social-icon:nth-child(5):hover {
-    color: #b92b27;
-    border-color: #b92b27;
-    box-shadow: 0 0 15px rgba(185, 43, 39, 0.8);
-}
-
-.social-icon:nth-child(6):hover {
-    color: #ff0050;
-    border-color: #ff0050;
-    box-shadow: 0 0 15px rgba(255, 0, 80, 0.8);
-}
-
-.social-icon:nth-child(7):hover {
-    color: #5865F2;
-    border-color: #5865F2;
-    box-shadow: 0 0 15px rgba(88, 101, 242, 0.8);
-}
-
-/* About Section */
-.about-section {
-    margin: 3rem 0;
-    width: 100%;
-    max-width: 800px;
-    position: relative;
-    z-index: 2;
-}
-
-.about-card {
-    background: rgba(15, 15, 15, 0.8);
-    border-radius: 16px;
-    padding: 2.5rem;
-    box-shadow: 0 0 30px rgba(57, 255, 20, 0.1);
-    position: relative;
-    overflow: hidden;
-    border: 1px solid rgba(57, 255, 20, 0.2);
-}
-
-.about-card::before {
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    background: linear-gradient(45deg, var(--neon-green), var(--neon-blue), var(--neon-purple));
-    z-index: -1;
-    border-radius: 16px;
-    background-size: 400%;
-    opacity: 0.5;
-    animation: glowing-border 3s linear infinite;
-}
-
-@keyframes glowing-border {
-    0% {
-        background-position: 0 0;
-    }
-    50% {
-        background-position: 400% 0;
-    }
-    100% {
-        background-position: 0 0;
-    }
-}
-
-.about-card h2 {
-    font-family: var(--font-heading);
-    color: var(--neon-green);
-    margin-bottom: 1.5rem;
-    text-align: center;
-    font-size: 2rem;
-    letter-spacing: 1px;
-    text-shadow: 0 0 10px rgba(57, 255, 20, 0.5);
-}
-
-.about-card p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    text-align: center;
-    color: var(--text-color);
-    font-weight: 400;
-}
-
-/* Spotify Section */
-.spotify-section {
-    margin: 3rem 0;
-    width: 100%;
-    max-width: 600px;
-    position: relative;
-    z-index: 2;
-}
-
-.spotify-embed {
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: var(--green-glow);
-    transition: var(--transition);
-    background: rgba(15, 15, 15, 0.8);
-    border: 1px solid rgba(57, 255, 20, 0.2);
-}
-
-.spotify-embed:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 30px rgba(57, 255, 20, 0.4);
-}
-
-/* Footer */
-.footer {
-    margin-top: 2rem;
-    padding: 2rem 0;
-    text-align: center;
-    color: var(--text-muted);
-    font-size: 0.9rem;
-    width: 100%;
-    position: relative;
-    z-index: 2;
-}
-
-.footer p {
-    letter-spacing: 1px;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .container {
-        padding: 1.5rem;
-    }
-    
-    .profile-picture {
-        width: 150px;
-        height: 150px;
-    }
-    
-    .username {
-        font-size: 2.5rem;
-    }
-    
-    .tagline {
-        font-size: 1.2rem;
-    }
-    
-    .social-icon {
-        width: 60px;
-        height: 60px;
-        font-size: 1.8rem;
-    }
-    
-    .about-card {
-        padding: 1.8rem;
-    }
-    
-    .about-card h2 {
-        font-size: 1.8rem;
-    }
-    
-    .about-card p {
-        font-size: 1rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .container {
-        padding: 1rem;
-    }
-    
-    .profile-picture {
-        width: 130px;
-        height: 130px;
-    }
-    
-    .username {
-        font-size: 2rem;
-    }
-    
-    .tagline {
-        font-size: 1.1rem;
-    }
-    
-    .social-icons {
-        gap: 1rem;
-    }
-    
-    .social-icon {
-        width: 55px;
-        height: 55px;
-        font-size: 1.5rem;
-    }
-    
-    .about-card {
-        padding: 1.5rem;
-    }
-    
-    .about-card h2 {
-        font-size: 1.6rem;
-    }
-    
-    .about-card p {
-        font-size: 0.95rem;
-    }
-}
+</body>
+</html>
